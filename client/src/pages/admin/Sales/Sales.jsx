@@ -87,16 +87,47 @@ const Sales = () => {
       field: "_id",
       headerName: "Transaction ID",
       width: 180,
+      headerAlign: "center",
+      align: "center",
+      renderCell: (params) => {
+        return (
+          <Paper
+            sx={{
+              width: "100%",
+              padding: "2px 20px",
+              borderRadius: "5px",
+              display: "flex",
+              justifyContent: "center",
+              backgroundColor: colors.whiteOnly[500],
+              alignItems: "center",
+              "&:hover": {
+                cursor: "pointer",
+              },
+            }}
+          >
+            <Typography
+              fontWeight="bold"
+              sx={{ fontSize: "8pt", color: colors.blackOnly[500] }}
+            >
+              {params?.value}
+            </Typography>
+          </Paper>
+        );
+      },
     },
     {
       field: "transactor",
       headerName: "Transactor",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "totalSum",
       headerName: "Total Sales",
       width: 150,
+      headerAlign: "center",
+      align: "center",
       renderCell: (params) => {
         return <> {"₱ " + params.value}</>;
       },
@@ -105,6 +136,8 @@ const Sales = () => {
       field: "discountAmount",
       headerName: "Discount Amount",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
 
     {
@@ -117,6 +150,8 @@ const Sales = () => {
       field: "createdAt",
       headerName: "Transaction Date",
       width: 150,
+      headerAlign: "center",
+      align: "center",
       valueFormatter: (params) =>
         format(new Date(params?.value), "MMMM dd, yyyy"),
     },

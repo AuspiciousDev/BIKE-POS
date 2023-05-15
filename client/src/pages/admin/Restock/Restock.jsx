@@ -97,7 +97,7 @@ const Restock = () => {
     {
       field: "productID",
       headerName: "Product ID",
-      width: 150,
+      width: 250,
       headerAlign: "center",
       align: "center",
     },
@@ -288,17 +288,14 @@ const Restock = () => {
             },
           }}
         >
-          <DataGrid
-            rows={
-              restocks
-                ? restocks.filter((filter) => {
+          {/* .filter((filter) => {
                     return (
                       format(new Date(filter.deliveryDate), "MM dd yyyy") >=
                       format(new Date(), "MM dd yyyy")
                     );
-                  })
-                : []
-            }
+                  }) */}
+          <DataGrid
+            rows={restocks ? restocks : []}
             getRowId={(row) => row?._id}
             columns={columns}
             pageSize={page}

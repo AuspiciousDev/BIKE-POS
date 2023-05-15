@@ -87,7 +87,7 @@ const restockController = {
           return (
             tag.deliveryDate !== "n/a" &&
             tag.status === false &&
-            format(new Date(currDate), "MMMM dd yyyy") ===
+            format(new Date(currDate), "MMMM dd yyyy") >=
               format(new Date(tag.deliveryDate), "MMMM dd yyyy")
           );
         })

@@ -17,6 +17,7 @@ import {
   Fastfood,
   FastfoodOutlined,
   Edit,
+  TwoWheelerOutlined,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { DataGrid, GridToolbar, GridToolbarContainer } from "@mui/x-data-grid";
@@ -493,7 +494,7 @@ const Inventory = () => {
             <Button
               sx={{ height: "100%", color: "white" }}
               variant="contained"
-              startIcon={<FastfoodOutlined />}
+              startIcon={<TwoWheelerOutlined />}
               onClick={() => {
                 navigate("add");
               }}

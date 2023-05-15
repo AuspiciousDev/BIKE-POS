@@ -101,7 +101,7 @@ const Employee = () => {
     {
       field: "name",
       headerName: "Name",
-      width: 150,
+      width: 250,
       headerAlign: "center",
       align: "center",
       valueGetter: (params) =>
@@ -235,7 +235,10 @@ const Employee = () => {
             >
               <Paper_Icon icon={<Edit />} color={`${colors.primary[500]}`} />
             </ButtonBase>
-            {"2192359398" !== auth?.username ? (
+            {auth?.username === "2192359398" ||
+            params?.row?.username === "2192359398" ? (
+              <></>
+            ) : (
               <ButtonBase
                 disabled={"2192359398" === params?.row?.username}
                 onClick={(event) => {
@@ -247,8 +250,6 @@ const Employee = () => {
                   color={`${colors.redDark[500]}`}
                 />
               </ButtonBase>
-            ) : (
-              <></>
             )}
           </Box>
         );

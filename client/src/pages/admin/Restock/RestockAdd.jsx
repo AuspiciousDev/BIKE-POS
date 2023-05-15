@@ -375,6 +375,7 @@ const RestockAdd = () => {
         <Box
           sx={{
             height: "100%",
+            minHeight: "400px",
             width: "100%",
             "& .super-app-theme--Low": {
               bgcolor: "#F68181",
@@ -459,6 +460,7 @@ const RestockAdd = () => {
             >
               <TextField
                 required
+                size="small"
                 disabled
                 label="Product ID"
                 variant="outlined"
@@ -472,6 +474,7 @@ const RestockAdd = () => {
               <TextField
                 required
                 disabled
+                size="small"
                 label="Product Name"
                 variant="outlined"
                 placeholder=""
@@ -484,6 +487,7 @@ const RestockAdd = () => {
               />
               <TextField
                 required
+                size="small"
                 label="Supplier"
                 variant="outlined"
                 placeholder=""
@@ -493,9 +497,10 @@ const RestockAdd = () => {
                 onChange={(e) => {
                   setSupplier(e.target.value);
                 }}
-              />{" "}
+              />
               <TextField
                 required
+                size="small"
                 label="Quantity"
                 variant="outlined"
                 placeholder=""
@@ -519,6 +524,7 @@ const RestockAdd = () => {
                       autoComplete="off"
                       error={false}
                       required
+                      size="small"
                       disabled
                       {...params}
                     />
@@ -531,15 +537,15 @@ const RestockAdd = () => {
                 display: "flex",
                 justifyContent: "end",
                 gap: 2,
-                mt: 5,
                 "& > button": {
                   width: "20em",
-                  height: "4em",
+                  height: "3.5em",
                 },
               }}
             >
               <Button
                 type="button"
+                size="small"
                 variant="contained"
                 color="secondary"
                 onClick={(e) => {
@@ -549,6 +555,7 @@ const RestockAdd = () => {
                 <Typography variant="h4">Cancel</Typography>
               </Button>
               <Button
+                size="small"
                 type="submit"
                 variant="contained"
                 disabled={!productID || !productName || deliveryDateError}

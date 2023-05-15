@@ -45,6 +45,9 @@ export const tokens = (mode) => ({
         whiteOnly: {
           500: "#ffffff",
         },
+        blackOnly: {
+          500: "#000000",
+        },
         defaultColor: {
           500: "#01579b",
         },
@@ -89,6 +92,9 @@ export const tokens = (mode) => ({
           800: "#cccccc",
           900: "#F9F9F9",
           950: "#ffffff",
+        },
+        blackOnly: {
+          500: "#000000",
         },
         whiteOnly: {
           500: "#ffffff",

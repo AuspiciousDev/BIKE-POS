@@ -19,6 +19,7 @@ import {
   LogoutOutlined,
   Person2Outlined,
   LockOutlined,
+  SettingsApplicationsOutlined,
 } from "@mui/icons-material";
 import { styled, alpha } from "@mui/material/styles";
 import { useState, useContext } from "react";
@@ -105,25 +106,8 @@ const Navbar = () => {
           Bisikleta Online Shop
         </Typography>
       </Box>
-      <IconButton
-        sx={{
-          "&:hover": {
-            transform: "scale3d(1.5, 1.5, 1)",
-            animation: "rotation 1s linear infinite",
-            "@keyframes rotation": {
-              "0%": {
-                transform: "rotate(0deg)",
-              },
-              "100%": {
-                transform: "rotate(360deg)",
-              },
-            },
-            color: colors.primary[900],
-          },
-        }}
-        onClick={handleClick}
-      >
-        <SettingsOutlined />
+      <IconButton sx={{ color: colors.primary[500] }} onClick={handleClick}>
+        <SettingsApplicationsOutlined />
       </IconButton>
       <StyledMenu
         id="demo-customized-menu"

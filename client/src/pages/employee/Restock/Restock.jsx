@@ -112,15 +112,6 @@ const Restock = () => {
     },
 
     {
-      field: "expiredOn",
-      headerName: "Expiry Date",
-      width: 150,
-      valueFormatter: (params) =>
-        params?.value === "n/a"
-          ? "N/A"
-          : format(new Date(params?.value), "MMMM dd, yyyy"),
-    },
-    {
       field: "deliveryDate",
       headerName: "Delivery Date",
       width: 150,
@@ -282,7 +273,6 @@ const Restock = () => {
                   createdAt: false,
                   address: false,
                   action: false,
-                  necessity: false,
                 },
               },
             }}

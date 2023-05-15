@@ -70,12 +70,10 @@ const RestockAdd = () => {
   const [quantity, setQuantity] = useState("");
   const [supplier, setSupplier] = useState("");
   const [deliveryDate, setDeliveryDate] = useState(null);
-  const [expiredOn, setExpiredOn] = useState(null);
   const [isFood, setIsFood] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState("");
 
   const [deliveryDateError, setDeliveryDateError] = useState(true);
-  const [expiredOnError, setExpiredOnError] = useState(true);
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
     title: "",
@@ -95,9 +93,6 @@ const RestockAdd = () => {
   const [loadingDialog, setLoadingDialog] = useState({
     isOpen: false,
   });
-  const toggleIsFood = () => {
-    setIsFood((prev) => !prev);
-  };
   const [page, setPage] = React.useState(10);
   const columns = [
     {
@@ -138,52 +133,11 @@ const RestockAdd = () => {
     },
 
     {
-      field: "expiredOn",
-      headerName: "Expiry Date",
-      width: 150,
-      valueFormatter: (params) =>
-        params?.value === "n/a"
-          ? "N/A"
-          : format(new Date(params?.value), "MMMM dd, yyyy"),
-    },
-    {
       field: "createdAt",
       headerName: "Date Created",
       width: 150,
       valueFormatter: (params) =>
         format(new Date(params?.value), "MMMM dd, yyyy"),
-    },
-    {
-      field: "necessity",
-      headerName: "Necessity",
-      width: 150,
-      headerAlign: "center",
-      align: "center",
-      renderCell: (params) => {
-        return (
-          <>
-            {params?.value === true ? (
-              <Paper sx={{ display: "flex", padding: "0.25em 0.5em", gap: 1 }}>
-                <CheckCircle
-                  sx={{
-                    color: "green",
-                  }}
-                />
-                <Typography>Discount</Typography>
-              </Paper>
-            ) : (
-              <Paper sx={{ display: "flex", padding: "0.25em 0.5em", gap: 1 }}>
-                <Cancel
-                  sx={{
-                    color: "red",
-                  }}
-                />
-                <Typography>None</Typography>
-              </Paper>
-            )}
-          </>
-        );
-      },
     },
     {
       field: "status",
@@ -220,9 +174,7 @@ const RestockAdd = () => {
     setProductName("");
     setQuantity("");
     setSupplier("");
-    setExpiredOn(null);
     setDeliveryDate(null);
-    setIsFood(false);
   };
   useEffect(() => {
     selectedProduct && setProductName(selectedProduct.productName);
@@ -370,18 +322,6 @@ const RestockAdd = () => {
       setDeliveryDate(value);
     } else {
       setDeliveryDateError(true);
-    }
-  };
-  const handleExpiredOn = (value) => {
-    setExpiredOnError(false);
-    if (moment(value).isValid()) {
-      console.log(
-        "🚀 ~ file: Restock.jsx:289 ~ handleExpiredOn ~ value",
-        value
-      );
-      setExpiredOn(value);
-    } else {
-      setExpiredOnError(true);
     }
   };
 
@@ -589,56 +529,6 @@ const RestockAdd = () => {
                   )}
                 />
               </LocalizationProvider>
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  alignItems: "center",
-                  width: "100%",
-                }}
-              >
-                {!isFood ? (
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DesktopDatePicker
-                      required
-                      label="Expired on"
-                      inputFormat="MM/dd/yyyy"
-                      value={expiredOn}
-                      error={expiredOnError}
-                      onChange={handleExpiredOn}
-                      renderInput={(params) => (
-                        <TextField
-                          autoComplete="off"
-                          error={false}
-                          required
-                          disabled
-                          fullWidth
-                          {...params}
-                        />
-                      )}
-                    />
-                  </LocalizationProvider>
-                ) : (
-                  <></>
-                )}
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: "4em",
-                    width: "100%",
-                  }}
-                >
-                  <Checkbox
-                    checked={isFood}
-                    onChange={toggleIsFood}
-                    sx={{ height: "5px", width: "5px", mr: 1 }}
-                    color="primary"
-                  />
-
-                  <Typography variant="h5">No expiration</Typography>
-                </Box>
-              </Box>
             </Box>
             <Box
               sx={{

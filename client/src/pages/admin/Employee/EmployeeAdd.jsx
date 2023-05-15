@@ -105,7 +105,7 @@ const EmployeeAdd = () => {
         setSuccessDialog({
           isOpen: true,
           title: `Employee [${json.username}]  has been added!`,
-          message: `An email has been sent to [${json.email}] of his/her login credentials.`,
+          message: `Login credentials has been sent to[${json.email}]. Default password is portal01`,
         });
         setLoadingDialog({ isOpen: false });
         clearFields();
@@ -161,13 +161,14 @@ const EmployeeAdd = () => {
     setUsername("");
     setEmail("");
     // setUserType("");
-    setPassword("");
+    // setPassword("");
     setFirstName("");
     setMiddleName("");
     setLastName("");
     setAddress("");
     setMobile("");
     setBirthday(null);
+    setUserType("");
   };
   return (
     <Box className="contents">

@@ -119,52 +119,11 @@ const Inventory = () => {
     },
 
     {
-      field: "expiredOn",
-      headerName: "Expiry Date",
-      width: 150,
-      valueFormatter: (params) =>
-        params?.value === "n/a"
-          ? "N/A"
-          : format(new Date(params?.value), "MMMM dd, yyyy"),
-    },
-    {
       field: "createdAt",
       headerName: "Date Created",
       width: 150,
       valueFormatter: (params) =>
         format(new Date(params?.value), "MMMM dd, yyyy"),
-    },
-    {
-      field: "necessity",
-      headerName: "Necessity",
-      width: 150,
-      headerAlign: "center",
-      align: "center",
-      renderCell: (params) => {
-        return (
-          <>
-            {params?.value === true ? (
-              <Paper sx={{ display: "flex", padding: "0.25em 0.5em", gap: 1 }}>
-                <CheckCircle
-                  sx={{
-                    color: "green",
-                  }}
-                />
-                <Typography>Discount</Typography>
-              </Paper>
-            ) : (
-              <Paper sx={{ display: "flex", padding: "0.25em 0.5em", gap: 1 }}>
-                <Cancel
-                  sx={{
-                    color: "red",
-                  }}
-                />
-                <Typography> None</Typography>
-              </Paper>
-            )}
-          </>
-        );
-      },
     },
   ];
 
@@ -423,7 +382,6 @@ const Inventory = () => {
                   createdAt: false,
                   address: false,
                   action: false,
-                  necessity: false,
                 },
               },
             }}

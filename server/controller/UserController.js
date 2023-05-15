@@ -79,9 +79,10 @@ const UserController = {
       res.status(201).json(createUser);
     } catch (error) {
       console.log(
-        "🚀 ~ file: UserController.js:7 ~ createUser: ~ error",
+        "🚀 ~ file: UserController.js:81 ~ createUser: ~ error:",
         error
       );
+
       res.status(500).json({ message: error.message });
     }
   },
