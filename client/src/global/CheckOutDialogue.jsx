@@ -85,7 +85,7 @@ const CheckOutDialogue = (props) => {
             },
           }}
         >
-          Total Purchase Amount: <span>PHP {subTotal.toFixed(2)}</span>
+          Total Purchase Amount: <span>₱ {subTotal.toFixed(2)}</span>
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -114,23 +114,23 @@ const CheckOutDialogue = (props) => {
           >
             <Button
               fullWidth
-              type="submit"
-              disabled={!tenderAmount}
-              variant="contained"
-              color="primary"
-              sx={{ height: "100%", color: colors.black[900] }}
-            >
-              <Typography variant="h5"> Submit </Typography>
-            </Button>
-            <Button
-              fullWidth
               type="button"
               variant="contained"
-              color="secondary"
+              color="primary"
               sx={{ height: "100%", color: colors.black[900] }}
               onClick={handleClose}
             >
               <Typography variant="h5"> Cancel</Typography>
+            </Button>
+            <Button
+              fullWidth
+              type="submit"
+              disabled={!tenderAmount}
+              variant="contained"
+              color="secondary"
+              sx={{ height: "100%", color: colors.black[900] }}
+            >
+              <Typography variant="h5"> Submit </Typography>
             </Button>
           </Box>
         </form>

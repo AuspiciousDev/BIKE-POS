@@ -24,11 +24,12 @@ import ErrorDialogue from "../../../global/ErrorDialogue";
 import SuccessDialogue from "../../../global/SuccessDialogue";
 import ConfirmDialogue from "../../../global/ConfirmDialogue";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
+import { useNavigate } from "react-router-dom";
 const EmployeeAdd = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const axiosPrivate = useAxiosPrivate();
-
+  const navigate = useNavigate();
   const isLetters = (str) => /^[A-Za-z\s]*$/.test(str);
   const isNumber = (str) => /^[0-9]*$/.test(str);
   const [username, setUsername] = useState("");
@@ -255,7 +256,7 @@ const EmployeeAdd = () => {
                   setEmailError(false);
                 }}
               />
-              {/* <FormControl required>
+              <FormControl required>
                 <InputLabel id="demo-simple-select-required-label">
                   User type
                 </InputLabel>
@@ -272,7 +273,7 @@ const EmployeeAdd = () => {
                   <MenuItem value={"admin"}>Admin</MenuItem>
                   <MenuItem value={"employee"}>Employee</MenuItem>
                 </Select>
-              </FormControl> */}
+              </FormControl>
 
               {/* <FormControl required fullWidth>
                 <InputLabel id="demo-simple-select-label">Password</InputLabel>
@@ -423,7 +424,14 @@ const EmployeeAdd = () => {
               >
                 <Typography variant="h4">Submit</Typography>
               </Button>
-              <Button type="button" variant="contained" color="secondary">
+              <Button
+                type="button"
+                onClick={() => {
+                  navigate(-1);
+                }}
+                variant="contained"
+                color="secondary"
+              >
                 <Typography variant="h4">Cancel</Typography>
               </Button>
             </Box>

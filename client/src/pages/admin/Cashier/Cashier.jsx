@@ -508,7 +508,7 @@ const Cashier = () => {
                         <TableCell>Product Name</TableCell>
                         <TableCell align="center">Quantity</TableCell>
                         <TableCell align="right">Price</TableCell>
-                        <TableCell align="right">Total</TableCell>
+                        <TableCell align="right">Total </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -671,7 +671,7 @@ const Cashier = () => {
                   Subtotal
                 </Typography>
                 <Typography variant="h4" textAlign="right" fontWeight={700}>
-                  {subTotal.toFixed(2)}
+                  ₱ {subTotal.toFixed(2)}
                 </Typography>
                 <Typography variant="h5">Discountable Amount</Typography>
                 <Typography variant="h5" textAlign="right">
@@ -701,7 +701,7 @@ const Cashier = () => {
                   Total
                 </Typography>
                 <Typography variant="h4" textAlign="right" fontWeight={700}>
-                  {totalSale?.toFixed(2)}
+                  ₱ {totalSale?.toFixed(2)}
                 </Typography>
                 <Typography variant="h5">Tender Amount</Typography>
                 <Typography variant="h5" textAlign="right">

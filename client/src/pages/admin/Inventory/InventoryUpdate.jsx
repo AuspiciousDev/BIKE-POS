@@ -47,11 +47,8 @@ const InventoryUpdate = () => {
   const [categoryList, setCategoryList] = useState([]);
   const [supplier, setSupplier] = useState("");
   const [supplierList, setSupplierList] = useState([]);
-  const [expiredOn, setExpiredOn] = useState(null);
   const [productNameError, setProductNameError] = useState(false);
-  const [necessity, setNecessity] = useState(false);
 
-  const [isFood, setIsFood] = useState(false);
   const [confirmDialog, setConfirmDialog] = useState({
     isOpen: false,
     title: "",
@@ -71,12 +68,6 @@ const InventoryUpdate = () => {
   const [loadingDialog, setLoadingDialog] = useState({
     isOpen: false,
   });
-  const toggleIsFood = () => {
-    setIsFood((prev) => !prev);
-  };
-  const toggleIsNecessity = () => {
-    setNecessity((prev) => !prev);
-  };
   const clearFields = () => {
     setProductName("");
     setPrice("");
@@ -85,9 +76,6 @@ const InventoryUpdate = () => {
     setCategory("");
     setNewCategory("");
     setSupplier("");
-    setExpiredOn(null);
-    setIsFood(false);
-    setNecessity(false);
   };
   useEffect(() => {
     const getData = async () => {
@@ -162,12 +150,6 @@ const InventoryUpdate = () => {
     setBrand(productDetails?.brand);
     setCategory(productDetails?.category);
     setSupplier(productDetails?.supplier);
-    if (
-      productDetails?.expiredOn === "n/a"
-        ? setIsFood(true)
-        : setExpiredOn(productDetails?.expiredOn)
-    );
-    setNecessity(productDetails?.necessity);
   }, [productDetails]);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -175,7 +157,6 @@ const InventoryUpdate = () => {
     try {
       setLoadingDialog({ isOpen: true });
 
-      isFood ? (expiredOnTemp = "n/a") : (expiredOnTemp = expiredOn);
       category === "newCategory"
         ? (finalCategory = newCategory)
         : (finalCategory = category);
@@ -388,72 +369,6 @@ const InventoryUpdate = () => {
                   setSupplier(e.target.value);
                 }}
               />
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: 2,
-                  alignItems: "center",
-                }}
-              >
-                {!isFood ? (
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DesktopDatePicker
-                      label="Expired on"
-                      inputFormat="MM/dd/yyyy"
-                      value={expiredOn}
-                      onChange={setExpiredOn}
-                      renderInput={(params) => (
-                        <TextField
-                          autoComplete="off"
-                          error={false}
-                          required
-                          disabled
-                          fullWidth
-                          {...params}
-                        />
-                      )}
-                    />
-                  </LocalizationProvider>
-                ) : (
-                  <></>
-                )}
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    height: "4em",
-                    width: "100%",
-                  }}
-                >
-                  <Checkbox
-                    checked={isFood}
-                    onChange={toggleIsFood}
-                    sx={{ height: "5px", width: "5px", mr: 1 }}
-                    color="primary"
-                  />
-
-                  <Typography variant="h5">No expiration</Typography>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  height: "4em",
-                  width: "100%",
-                }}
-              >
-                <Checkbox
-                  checked={necessity}
-                  onChange={toggleIsNecessity}
-                  sx={{ height: "5px", width: "5px", mr: 1 }}
-                  color="primary"
-                />
-
-                <Typography variant="h5">
-                  Necessity (Discountable for Senior Citizen or PWDs)
-                </Typography>
-              </Box>
             </Box>
 
             <Box

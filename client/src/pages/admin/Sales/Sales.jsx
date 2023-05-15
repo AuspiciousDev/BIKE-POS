@@ -98,7 +98,7 @@ const Sales = () => {
       headerName: "Total Sales",
       width: 150,
       renderCell: (params) => {
-        return <> {"Php " + params.value}</>;
+        return <> {"₱ " + params.value}</>;
       },
     },
     {

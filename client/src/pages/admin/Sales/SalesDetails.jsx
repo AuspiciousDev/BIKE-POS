@@ -89,26 +89,36 @@ const SalesDetails = () => {
       field: "_id",
       headerName: "_id",
       width: 180,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "productID",
       headerName: "Product ID",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "productName",
       headerName: "Product Name",
-      width: 150,
+      width: 250,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "quantity",
       headerName: "Quantity",
-      width: 150,
+      width: 120,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "price",
       headerName: "Price",
-      width: 150,
+      width: 120,
+      headerAlign: "center",
+      align: "center",
     },
   ];
   const SetSalesDetails = (val) => {
@@ -179,8 +189,7 @@ const SalesDetails = () => {
             <Typography className="headers">Vat Amount</Typography>
             <Typography className="details">
               <Box>
-                <ArrowRight />
-                {val.vatAmount.toFixed(2)}
+                <ArrowRight />₱ {val.vatAmount.toFixed(2)}
               </Box>
             </Typography>
           </Paper>
@@ -208,8 +217,7 @@ const SalesDetails = () => {
             <Typography className="headers">Total Sum</Typography>
             <Typography className="details">
               <Box>
-                <ArrowRight />
-                {val.totalSum.toFixed(2)}
+                <ArrowRight />₱ {val.totalSum.toFixed(2)}
               </Box>
             </Typography>
           </Paper>

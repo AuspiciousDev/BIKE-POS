@@ -85,48 +85,53 @@ const Inventory = () => {
       field: "_id",
       headerName: "Product ID",
       width: 180,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "productName",
       headerName: "Product Name",
-      width: 150,
+      width: 250,
+      headerAlign: "center",
+      align: "center",
     },
 
     {
       field: "price",
       headerName: "Price",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "quantity",
       headerName: "Quantity",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "brand",
       headerName: "Brand",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "category",
       headerName: "Category",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
     {
       field: "supplier",
       headerName: "Supplier",
       width: 150,
+      headerAlign: "center",
+      align: "center",
     },
 
-    {
-      field: "expiredOn",
-      headerName: "Expiry Date",
-      width: 150,
-      valueFormatter: (params) =>
-        params?.value === "n/a"
-          ? "N/A"
-          : format(new Date(params?.value), "MMMM dd, yyyy"),
-    },
     {
       field: "createdAt",
       headerName: "Date Created",

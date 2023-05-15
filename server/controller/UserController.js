@@ -56,7 +56,11 @@ const UserController = {
       if (password === "generated") {
         tempPassword = generatePassword();
       }
-      hashedPassword = bcrypt.hash(tempPassword, 10);
+      hashedPassword = await bcrypt.hash(tempPassword, 10);
+      console.log(
+        "🚀 ~ file: UserController.js:60 ~ createUser: ~ hashedPassword:",
+        hashedPassword
+      );
 
       // Create User Object
       const userObject = {
